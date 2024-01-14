@@ -466,7 +466,10 @@ string generate(const json &rom, const string &functionName, const string &fileN
         code += "#endif\n\n";
 
         // ECRECOVER PRE-CALCULATION 
-        if(rom["labels"].contains("ecrecover_store_args") && zkPC == rom["labels"]["ecrecover_store_args"]){
+        if(
+            (rom["labels"].contains("ecrecover_store_args") && zkPC == rom["labels"]["ecrecover_store_args"]) ||
+            (rom["labels"].contains("ecrecoverpk_store_args") && zkPC == rom["labels"]["ecrecoverpk_store_args"])
+        ) {
             code += "    //ECRecover pre-calculation \n";
             code += "    if(mainExecutor.config.ECRecoverPrecalc){\n";
             code += "        zkassert(ctx.ecRecoverPrecalcBuffer.filled == false);\n";
@@ -490,7 +493,10 @@ string generate(const json &rom, const string &functionName, const string &fileN
             code += "    }\n";
 
         }       
-        if(rom["labels"].contains("ecrecover_end") && zkPC == rom["labels"]["ecrecover_end"]){
+        if(
+            (rom["labels"].contains("ecrecover_end") && zkPC == rom["labels"]["ecrecover_end"]) ||
+            (rom["labels"].contains("ecrecoverpk_end") && zkPC == rom["labels"]["ecrecoverpk_end"])
+        ) {
 
             code += "    //ECRecover destroy pre-calculaiton buffer\n";
             code += "    if( ctx.ecRecoverPrecalcBuffer.filled){\n";  
