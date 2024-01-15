@@ -34659,14 +34659,14 @@
    },
    "inFREE": "1",
    "setA": 1,
-   "offset": 61,
+   "offset": 62,
    "mOp": 1,
    "mWR": 0,
    "line": 60,
-   "offsetLabel": "tmpVarXEcrPub",
+   "offsetLabel": "tmpVarYEcrPub",
    "useCTX": 0,
    "fileName": "precompiled/pre-ecrecover-pubkey.zkasm",
-   "lineStr": "    $ => A                              :MLOAD(tmpVarXEcrPub)"
+   "lineStr": "    $ => A                              :MLOAD(tmpVarYEcrPub)"
   },
   {
    "inA": "1",
